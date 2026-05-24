@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Լուսինե & Տիգրան - Հարսանեկան Հրավեր</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FDFBF7;
+            --beige-light: #F5F0E8;
+            --beige-medium: #E8DCC8;
+            --gold: #C9A961;
+            --gold-light: #D4B978;
+            --gold-dark: #B8944D;
+            --olive: #8A9A5B;
+            --text-dark: #2C2C2C;
+            --text-soft: #5A5A5A;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--beige-light) 50%, var(--cream) 100%);
+            min-height: 100vh;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .invitation-container {
+            max-width: 450px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--beige-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative Elements */
+        .top-border {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+        }
+
+        .bottom-border {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 60px 30px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .olive-branch-top {
+            width: 180px;
+            height: auto;
+            margin: 0 auto 20px;
+            opacity: 0.8;
+            filter: drop-shadow(0 2px 4px rgba(201, 169, 97, 0.3));
+        }
+
+        .couple-names {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            font-weight: 400;
+            color: var(--text-dark);
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(201, 169, 97, 0.2);
+        }
+
+        .ampersand {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: var(--gold);
+            font-size: clamp(2rem, 6vw, 2.8rem);
+            display: block;
+            margin: 10px 0;
+        }
+
+        .invitation-text {
+            font-size: 1.1rem;
+            color: var(--text-soft);
+            font-style: italic;
+            margin-top: 25px;
+            letter-spacing: 0.02em;
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .divider-line {
+            width: 80px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .divider-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin: 0 15px;
+        }
+
+        /* Details Section */
+        .details-section {
+            padding: 40px 30px;
+            text-align: center;
+            background: linear-gradient(180deg, transparent 0%, rgba(201, 169, 97, 0.05) 50%, transparent 100%);
+        }
+
+        .detail-item {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .detail-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px;
+            background: linear-gradient(135deg, var(--beige-light), var(--beige-medium));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.2);
+        }
+
+        .detail-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--gold);
+        }
+
+        .detail-label {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .detail-value-small {
+            font-size: 1.2rem;
+        }
+
+        /* Date Highlight */
+        .date-highlight {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+            color: white;
+            padding: 25px 30px;
+            margin: 30px 20px;
+            border-radius: 2px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .date-highlight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(-30%, -30%); }
+            50% { transform: translate(30%, 30%); }
+        }
+
+        .date-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .date-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Location Section */
+        .location-section {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .location-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .location-city {
+            font-size: 1.1rem;
+            color: var(--text-soft);
+            font-style: italic;
+        }
+
+        .location-decoration {
+            width: 120px;
+            height: auto;
+            margin: 25px auto;
+            opacity: 0.7;
+        }
+
+        /* RSVP Section */
+        .rsvp-section {
+            padding: 50px 30px;
+            background: linear-gradient(180deg, var(--beige-light) 0%, var(--cream) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .rsvp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .rsvp-subtitle {
+            font-size: 1rem;
+            color: var(--text-soft);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .rsvp-form {
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-soft);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 15px 18px;
+            border: 1px solid var(--beige-medium);
+            background: var(--cream);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+        }
+
+        .form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C9A961' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+        }
+
+        .rsvp-button {
+            width: 100%;
+            padding: 18px 30px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+            color: white;
+            border: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+            border-radius: 2px;
+            margin-top: 10px;
+            box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rsvp-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .rsvp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.5);
+        }
+
+        .rsvp-button:hover::before {
+            left: 100%;
+        }
+
+        .rsvp-deadline {
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            margin-top: 25px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 30px;
+            text-align: center;
+            background: var(--beige-light);
+        }
+
+        .footer-olive {
+            width: 100px;
+            height: auto;
+            margin: 0 auto 20px;
+            opacity: 0.6;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            color: var(--text-soft);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .hashtag {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-top: 15px;
+            display: block;
+        }
+
+        /* Floating Flowers */
+        .floating-flower {
+            position: absolute;
+            width: 80px;
+            height: auto;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .flower-1 {
+            top: 100px;
+            left: -20px;
+            transform: rotate(-15deg);
+        }
+
+        .flower-2 {
+            top: 150px;
+            right: -20px;
+            transform: rotate(15deg);
+        }
+
+        .flower-3 {
+            bottom: 200px;
+            left: -15px;
+            transform: rotate(10deg);
+        }
+
+        .flower-4 {
+            bottom: 250px;
+            right: -15px;
+            transform: rotate(-10deg);
+        }
+
+        /* Content Wrapper */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--cream), var(--beige-light));
+            border: 1px solid var(--gold);
+            margin-top: 20px;
+            border-radius: 2px;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .success-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .success-subtext {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 380px) {
+            .hero-section,
+            .details-section,
+            .location-section,
+            .rsvp-section {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .couple-names {
+                font-size: 2.2rem;
+            }
+
+            .date-value {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .invitation-container {
+                max-width: 100%;
+                box-shadow: none;
+            }
+            .rsvp-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation-container">
+        <div class="top-border"></div>
+        
+        <!-- Floating Decorative Flowers -->
+        <svg class="floating-flower flower-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="#C9A961" stroke-width="1.5">
+                <circle cx="50" cy="50" r="15"/>
+                <circle cx="50" cy="25" r="8"/>
+                <circle cx="75" cy="50" r="8"/>
+                <circle cx="50" cy="75" r="8"/>
+                <circle cx="25" cy="50" r="8"/>
+                <circle cx="65" cy="35" r="6"/>
+                <circle cx="65" cy="65" r="6"/>
+                <circle cx="35" cy="65" r="6"/>
+                <circle cx="35" cy="35" r="6"/>
+            </g>
+        </svg>
+        <svg class="floating-flower flower-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="#C9A961" stroke-width="1.5">
+                <circle cx="50" cy="50" r="15"/>
+                <circle cx="50" cy="25" r="8"/>
+                <circle cx="75" cy="50" r="8"/>
+                <circle cx="50" cy="75" r="8"/>
+                <circle cx="25" cy="50" r="8"/>
+                <circle cx="65" cy="35" r="6"/>
+                <circle cx="65" cy="65" r="6"/>
+                <circle cx="35" cy="65" r="6"/>
+                <circle cx="35" cy="35" r="6"/>
+            </g>
+        </svg>
+
+        <div class="content-wrapper">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <!-- Olive Branch Top -->
+                <svg class="olive-branch-top" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#8A9A5B" stroke-width="2" stroke-linecap="round">
+                        <path d="M100 70 Q 80 50 60 45 Q 40 40 20 35"/>
+                        <path d="M100 70 Q 120 50 140 45 Q 160 40 180 35"/>
+                        <ellipse cx="30" cy="38" rx="8" ry="4" fill="#8A9A5B" transform="rotate(-20 30 38)"/>
+                        <ellipse cx="45" cy="42" rx="8" ry="4" fill="#8A9A5B" transform="rotate(-15 45 42)"/>
+                        <ellipse cx="60" cy="48" rx="8" ry="4" fill="#8A9A5B" transform="rotate(-10 60 48)"/>
+                        <ellipse cx="170" cy="38" rx="8" ry="4" fill="#8A9A5B" transform="rotate(20 170 38)"/>
+                        <ellipse cx="155" cy="42" rx="8" ry="4" fill="#8A9A5B" transform="rotate(15 155 42)"/>
+                        <ellipse cx="140" cy="48" rx="8" ry="4" fill="#8A9A5B" transform="rotate(10 140 48)"/>
+                        <circle cx="35" cy="35" r="3" fill="#C9A961"/>
+                        <circle cx="50" cy="40" r="3" fill="#C9A961"/>
+                        <circle cx="165" cy="35" r="3" fill="#C9A961"/>
+                        <circle cx="150" cy="40" r="3" fill="#C9A961"/>
+                    </g>
+                </svg>
+
+                <h1 class="couple-names">
+                    Լուսինե<br>
+                    <span class="ampersand">&</span>
+                    Տիգրան
+                </h1>
+
+                <p class="invitation-text">
+                    Սիրով հրավիրում ենք մեր հարսանիքին
+                </p>
+            </section>
+
+            <!-- Divider -->
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-dot"></div>
+                <div class="divider-line"></div>
+            </div>
+
+            <!-- Details Section -->
+            <section class="details-section">
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                        </svg>
+                    </div>
+                    <div class="detail-label">Ամսաթիվ</div>
+                    <div class="detail-value">Սեպտեմբերի 5, 2026</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-11H11v6l5.25 3.15.75-1.23-4.5-2.67V9z"/>
+                        </svg>
+                    </div>
+                    <div class="detail-label">Ժամ</div>
+                    <div class="detail-value">17:00</div>
+                </div>
+            </section>
+
+            <!-- Date Highlight -->
+            <div class="date-highlight">
+                <div class="date-label">Հարսանեկան Օր</div>
+                <div class="date-value">05 . 09 . 2026</div>
+            </div>
+
+            <!-- Location Section -->
+            <section class="location-section">
+                <!-- Olive Branch Decoration -->
+                <svg class="location-decoration" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#8A9A5B" stroke-width="1.5" stroke-linecap="round">
+                        <path d="M20 30 Q 50 20 80 25 Q 100 30 120 25 Q 150 20 180 30"/>
+                        <ellipse cx="35" cy="28" rx="10" ry="5" fill="#8A9A5B" transform="rotate(-25 35 28)"/>
+                        <ellipse cx="50" cy="25" rx="10" ry="5" fill="#8A9A5B" transform="rotate(-20 50 25)"/>
+                        <ellipse cx="65" cy="24" rx="10" ry="5" fill="#8A9A5B" transform="rotate(-15 65 24)"/>
+                        <ellipse cx="80" cy="25" rx="10" ry="5" fill="#8A9A5B" transform="rotate(-10 80 25)"/>
+                        <ellipse cx="120" cy="25" rx="10" ry="5" fill="#8A9A5B" transform="rotate(10 120 25)"/>
+                        <ellipse cx="135" cy="24" rx="10" ry="5" fill="#8A9A5B" transform="rotate(15 135 24)"/>
+                        <ellipse cx="150" cy="25" rx="10" ry="5" fill="#8A9A5B" transform="rotate(20 150 25)"/>
+                        <ellipse cx="165" cy="28" rx="10" ry="5" fill="#8A9A5B" transform="rotate(25 165 28)"/>
+                        <circle cx="40" cy="25" r="3" fill="#C9A961"/>
+                        <circle cx="70" cy="22" r="3" fill="#C9A961"/>
+                        <circle cx="130" cy="22" r="3" fill="#C9A961"/>
+                        <circle cx="160" cy="25" r="3" fill="#C9A961"/>
+                    </g>
+                </svg>
+
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                    </div>
+                    <div class="detail-label">Վայր</div>
+                    <div class="location-name">Ֆլորենսիա Ռեստորան</div>
+                    <div class="location-city">Երևան, Հայաստան</div>
+                </div>
+            </section>
+
+            <!-- Divider -->
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-dot"></div>
+                <div class="divider-line"></div>
+            </div>
+
+            <!-- RSVP Section -->
+            <section class="rsvp-section" id="rsvp">
+                <h2 class="rsvp-title">RSVP</h2>
+                <p class="rsvp-subtitle">Խնդրում ենք հաստատել ձեր ներկայությունը</p>
+
+                <form class="rsvp-form" id="rsvpForm">
+                    <div class="form-group">
+                        <label class="form-label" for="guestName">Անուն Ազգանուն</label>
+                        <input type="text" id="guestName" class="form-input" placeholder="Ձեր անունը" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="guestCount">Հյուրերի Քանակ</label>
+                        <select id="guestCount" class="form-select" required>
+                            <option value="">Ընտրեք</option>
+                            <option value="1">1 հոգի</option>
+                            <option value="2">2 հոգի</option>
+                            <option value="3">3 հոգի</option>
+                            <option value="4">4 հոգի</option>
+                            <option value="5">5+ հոգի</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="attendance">Կմասնակցե՞ք</label>
+                        <select id="attendance" class="form-select" required>
+                            <option value="">Ընտրեք</option>
+                            <option value="yes">Ուրախությամբ կմասնակցեմ</option>
+                            <option value="no">Ցավոք չեմ կարող մասնակցել</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="message">Մեսիջ (ըստ ցանկության)</label>
+                        <input type="text" id="message" class="form-input" placeholder="Ձեր մաղթանքները...">
+                    </div>
+
+                    <button type="submit" class="rsvp-button">Հաստատել</button>
+                </form>
+
+                <!-- Success Message -->
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="success-text">Շնորհակալություն!</div>
+                    <div class="success-subtext">Ձեր պատասխանը ստացվել է</div>
+                </div>
+
+                <p class="rsvp-deadline">
+                    Խնդրում ենք հաստատել մինչև Օգոստոսի 15, 2026
+                </p>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <!-- Small Olive Branch -->
+                <svg class="footer-olive" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#8A9A5B" stroke-width="1.5" stroke-linecap="round">
+                        <path d="M10 20 Q 30 15 50 18 Q 70 15 90 20"/>
+                        <ellipse cx="25" cy="18" rx="6" ry="3" fill="#8A9A5B" transform="rotate(-20 25 18)"/>
+                        <ellipse cx="40" cy="16" rx="6" ry="3" fill="#8A9A5B" transform="rotate(-15 40 16)"/>
+                        <ellipse cx="55" cy="16" rx="6" ry="3" fill="#8A9A5B" transform="rotate(-10 55 16)"/>
+                        <ellipse cx="70" cy="16" rx="6" ry="3" fill="#8A9A5B" transform="rotate(10 70 16)"/>
+                        <ellipse cx="85" cy="18" rx="6" ry="3" fill="#8A9A5B" transform="rotate(20 85 18)"/>
+                        <circle cx="30" cy="16" r="2" fill="#C9A961"/>
+                        <circle cx="60" cy="15" r="2" fill="#C9A961"/>
+                    </g>
+                </svg>
+
+                <p class="footer-text">
+                    Սպասում ենք ձեզ տեսնել<br>
+                    մեր առանձնահատուկ օրը
+                </p>
+                <span class="hashtag">#ԼուսինեՏիգրան2026</span>
+            </footer>
+        </div>
+
+        <div class="bottom-border"></div>
+    </div>
+
+    <script>
+        // RSVP Form Handler
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const guestName = document.getElementById('guestName').value;
+            const guestCount = document.getElementById('guestCount').value;
+            const attendance = document.getElementById('attendance').value;
+            const message = document.getElementById('message').value;
+
+            // Here you would typically send this data to a server
+            // For demo purposes, we'll just show the success message
+            console.log('RSVP Submission:', {
+                name: guestName,
+                guests: guestCount,
+                attending: attendance,
+                message: message
+            });
+
+            // Hide form and show success message
+            document.getElementById('rsvpForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+        });
+
+        // Smooth scroll for RSVP
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add subtle parallax effect on scroll
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const flowers = document.querySelectorAll('.floating-flower');
+            flowers.forEach((flower, index) => {
+                const speed = 0.1 + (index * 0.05);
+                flower.style.transform = `translateY(${scrolled * speed}px) rotate(${index % 2 === 0 ? '-' : ''}${10 + index * 5}deg)`;
+            });
+        });
+    </script>
+</body>
+</html>
