@@ -35,11 +35,86 @@
         }
 
         .invitation-container {
-            max-width: 450px;
+            max-width: 100%;
             margin: 0 auto;
             background: linear-gradient(180deg, var(--cream) 0%, var(--beige-light) 100%);
             position: relative;
             overflow: hidden;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 15px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid var(--gold);
+            background: transparent;
+            color: var(--text-dark);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: var(--gold);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--gold);
+            color: white;
+        }
+
+        /* Audio Player */
+        .audio-player-wrapper {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .audio-player-wrapper audio {
+            height: 35px;
+            border-radius: 20px;
+        }
+
+        .audio-icon {
+            width: 30px;
+            height: 30px;
+            fill: var(--gold);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
         }
 
         /* Decorative Elements */
@@ -55,9 +130,34 @@
 
         /* Hero Section */
         .hero-section {
-            padding: 60px 30px 40px;
+            padding: 80px 30px 60px;
             text-align: center;
             position: relative;
+            background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(253, 251, 247, 0.85);
+            z-index: 1;
+        }
+
+        .hero-section > * {
+            position: relative;
+            z-index: 2;
         }
 
         .olive-branch-top {
@@ -120,9 +220,29 @@
 
         /* Details Section */
         .details-section {
-            padding: 40px 30px;
+            padding: 60px 30px;
             text-align: center;
-            background: linear-gradient(180deg, transparent 0%, rgba(201, 169, 97, 0.05) 50%, transparent 100%);
+            background-image: url('https://images.unsplash.com/photo-1511285560982-1351cdeb9821?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .details-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(253, 251, 247, 0.9);
+            z-index: 1;
+        }
+
+        .details-section > * {
+            position: relative;
+            z-index: 2;
         }
 
         .detail-item {
@@ -218,8 +338,29 @@
 
         /* Location Section */
         .location-section {
-            padding: 40px 30px;
+            padding: 60px 30px;
             text-align: center;
+            background-image: url('https://images.unsplash.com/photo-1519225468359-2996bc01c323?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .location-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(253, 251, 247, 0.9);
+            z-index: 1;
+        }
+
+        .location-section > * {
+            position: relative;
+            z-index: 2;
         }
 
         .location-name {
@@ -245,10 +386,29 @@
 
         /* RSVP Section */
         .rsvp-section {
-            padding: 50px 30px;
-            background: linear-gradient(180deg, var(--beige-light) 0%, var(--cream) 100%);
+            padding: 70px 30px;
+            background-image: url('https://images.unsplash.com/photo-1469334031218-e38a152b9c3e?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             text-align: center;
             position: relative;
+        }
+
+        .rsvp-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(253, 251, 247, 0.92);
+            z-index: 1;
+        }
+
+        .rsvp-section > * {
+            position: relative;
+            z-index: 2;
         }
 
         .rsvp-title {
@@ -497,6 +657,134 @@
             }
         }
 
+        /* Tablet Responsive Styles */
+        @media (min-width: 451px) and (max-width: 768px) {
+            .invitation-container {
+                max-width: 90%;
+                margin: 20px auto;
+                border-radius: 10px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            }
+
+            .hero-section {
+                padding: 100px 40px 80px;
+                min-height: 450px;
+            }
+
+            .details-section,
+            .location-section {
+                padding: 70px 40px;
+            }
+
+            .rsvp-section {
+                padding: 80px 40px;
+            }
+
+            .couple-names {
+                font-size: clamp(2.8rem, 10vw, 4rem);
+            }
+
+            .language-switcher {
+                top: 15px;
+                right: 15px;
+                padding: 8px 12px;
+            }
+
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            .audio-player-wrapper {
+                bottom: 15px;
+                padding: 10px 15px;
+            }
+        }
+
+        /* Desktop Responsive Styles */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .invitation-container {
+                max-width: 700px;
+                margin: 30px auto;
+                border-radius: 15px;
+                box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            }
+
+            .hero-section {
+                padding: 120px 50px 100px;
+                min-height: 500px;
+            }
+
+            .details-section,
+            .location-section {
+                padding: 80px 50px;
+            }
+
+            .rsvp-section {
+                padding: 90px 50px;
+            }
+
+            .couple-names {
+                font-size: clamp(3rem, 12vw, 4.5rem);
+            }
+
+            .rsvp-form {
+                max-width: 450px;
+            }
+        }
+
+        /* Large Desktop Styles */
+        @media (min-width: 1025px) {
+            .invitation-container {
+                max-width: 800px;
+                margin: 40px auto;
+                border-radius: 20px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            }
+
+            .hero-section {
+                padding: 140px 60px 120px;
+                min-height: 550px;
+            }
+
+            .details-section,
+            .location-section {
+                padding: 90px 60px;
+            }
+
+            .rsvp-section {
+                padding: 100px 60px;
+            }
+        }
+
+        /* Mobile adjustments for language switcher and audio player */
+        @media (max-width: 450px) {
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 6px 10px;
+            }
+
+            .lang-btn {
+                padding: 5px 10px;
+                font-size: 0.75rem;
+            }
+
+            .audio-player-wrapper {
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: calc(100% - 20px);
+                justify-content: center;
+                padding: 8px 12px;
+            }
+
+            .audio-player-wrapper audio {
+                height: 30px;
+                width: 100%;
+            }
+        }
+
         /* Print Styles */
         @media print {
             body {
@@ -513,6 +801,25 @@
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="hy">HY</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+    </div>
+
+    <!-- Audio Player -->
+    <div class="audio-player-wrapper">
+        <svg class="audio-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z"/>
+        </svg>
+        <audio controls loop>
+            <source src="wedding-music.mp3" type="audio/mpeg">
+            <source src="wedding-music.ogg" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
     <div class="invitation-container">
         <div class="top-border"></div>
         
@@ -736,6 +1043,166 @@
     </div>
 
     <script>
+        // Language Switcher Functionality
+        const translations = {
+            hy: {
+                coupleNames: 'Լուսինե<br><span class="ampersand">&</span><br>Տիգրան',
+                invitationText: 'Սիրով հրավիրում ենք մեր հարսանիքին',
+                dateLabel: 'Ամսաթիվ',
+                dateValue: 'Սեպտեմբերի 5, 2026',
+                timeLabel: 'Ժամ',
+                timeValue: '17:00',
+                dateHighlightLabel: 'Հարսանեկան Օր',
+                locationLabel: 'Վայր',
+                locationName: 'Ֆլորենսիա Ռեստորան',
+                locationCity: 'Երևան, Հայաստան',
+                rsvpTitle: 'RSVP',
+                rsvpSubtitle: 'Խնդրում ենք հաստատել ձեր ներկայությունը',
+                guestNameLabel: 'Անուն Ազգանուն',
+                guestNamePlaceholder: 'Ձեր անունը',
+                guestCountLabel: 'Հյուրերի Քանակ',
+                guestCountSelect: 'Ընտրեք',
+                attendanceLabel: 'Կմասնակցե՞ք',
+                attendingYes: 'Ուրախությամբ կմասնակցեմ',
+                attendingNo: 'Ցավոք չեմ կարող մասնակցել',
+                messageLabel: 'Մեսիջ (ըստ ցանկության)',
+                messagePlaceholder: 'Ձեր մաղթանքները...',
+                submitButton: 'Հաստատել',
+                successTitle: 'Շնորհակալություն!',
+                successSubtitle: 'Ձեր պատասխանը ստացվել է',
+                deadlineText: 'Խնդրում ենք հաստատել մինչև Օգոստոսի 15, 2026',
+                footerText: 'Սպասում ենք ձեզ տեսնել<br>մեր առանձնահատուկ օրը',
+                hashtag: '#ԼուսինեՏիգրան2026'
+            },
+            en: {
+                coupleNames: 'Lusine<br><span class="ampersand">&</span><br>Tigran',
+                invitationText: 'We cordially invite you to our wedding',
+                dateLabel: 'Date',
+                dateValue: 'September 5, 2026',
+                timeLabel: 'Time',
+                timeValue: '17:00',
+                dateHighlightLabel: 'Wedding Day',
+                locationLabel: 'Venue',
+                locationName: 'Florensia Restaurant',
+                locationCity: 'Yerevan, Armenia',
+                rsvpTitle: 'RSVP',
+                rsvpSubtitle: 'Please confirm your attendance',
+                guestNameLabel: 'Full Name',
+                guestNamePlaceholder: 'Your name',
+                guestCountLabel: 'Number of Guests',
+                guestCountSelect: 'Select',
+                attendanceLabel: 'Will you attend?',
+                attendingYes: 'Joyfully accept',
+                attendingNo: 'Regretfully decline',
+                messageLabel: 'Message (optional)',
+                messagePlaceholder: 'Your wishes...',
+                submitButton: 'Confirm',
+                successTitle: 'Thank You!',
+                successSubtitle: 'Your response has been received',
+                deadlineText: 'Please confirm by August 15, 2026',
+                footerText: 'We look forward to seeing you<br>on our special day',
+                hashtag: '#LusineTigran2026'
+            },
+            ru: {
+                coupleNames: 'Лусине<br><span class="ampersand">&</span><br>Тигран',
+                invitationText: 'С любовью приглашаем вас на нашу свадьбу',
+                dateLabel: 'Дата',
+                dateValue: '5 Сентября, 2026',
+                timeLabel: 'Время',
+                timeValue: '17:00',
+                dateHighlightLabel: 'День Свадьбы',
+                locationLabel: 'Место проведения',
+                locationName: 'Ресторан Флоренсия',
+                locationCity: 'Ереван, Армения',
+                rsvpTitle: 'RSVP',
+                rsvpSubtitle: 'Пожалуйста, подтвердите ваше присутствие',
+                guestNameLabel: 'ФИО',
+                guestNamePlaceholder: 'Ваше имя',
+                guestCountLabel: 'Количество гостей',
+                guestCountSelect: 'Выбрать',
+                attendanceLabel: 'Вы будете присутствовать?',
+                attendingYes: 'С радостью приду',
+                attendingNo: 'К сожалению, не смогу прийти',
+                messageLabel: 'Сообщение (по желанию)',
+                messagePlaceholder: 'Ваши пожелания...',
+                submitButton: 'Подтвердить',
+                successTitle: 'Спасибо!',
+                successSubtitle: 'Ваш ответ получен',
+                deadlineText: 'Пожалуйста, подтвердите до 15 Августа, 2026',
+                footerText: 'С нетерпением ждем встречи с вами<br>в наш особенный день',
+                hashtag: '#ЛусинеТигран2026'
+            }
+        };
+
+        let currentLang = 'hy';
+
+        function updateContent(lang) {
+            const t = translations[lang];
+            
+            // Update couple names
+            document.querySelector('.couple-names').innerHTML = t.coupleNames;
+            
+            // Update invitation text
+            document.querySelector('.invitation-text').textContent = t.invitationText;
+            
+            // Update details section
+            document.querySelectorAll('.detail-label')[0].textContent = t.dateLabel;
+            document.querySelectorAll('.detail-value')[0].textContent = t.dateValue;
+            document.querySelectorAll('.detail-label')[1].textContent = t.timeLabel;
+            document.querySelectorAll('.detail-value')[1].textContent = t.timeValue;
+            
+            // Update date highlight
+            document.querySelector('.date-label').textContent = t.dateHighlightLabel;
+            document.querySelector('.date-value').textContent = t.dateValue.split(',')[0];
+            
+            // Update location section
+            document.querySelectorAll('.detail-label')[2].textContent = t.locationLabel;
+            document.querySelector('.location-name').textContent = t.locationName;
+            document.querySelector('.location-city').textContent = t.locationCity;
+            
+            // Update RSVP section
+            document.querySelector('.rsvp-title').textContent = t.rsvpTitle;
+            document.querySelector('.rsvp-subtitle').textContent = t.rsvpSubtitle;
+            document.querySelectorAll('.form-label')[0].textContent = t.guestNameLabel;
+            document.getElementById('guestName').placeholder = t.guestNamePlaceholder;
+            document.querySelectorAll('.form-label')[1].textContent = t.guestCountLabel;
+            document.querySelector('#guestCount option[value=""]').textContent = t.guestCountSelect;
+            document.querySelectorAll('.form-label')[2].textContent = t.attendanceLabel;
+            document.querySelector('#attendance option[value=""]').textContent = t.guestCountSelect;
+            document.querySelector('#attendance option[value="yes"]').textContent = t.attendingYes;
+            document.querySelector('#attendance option[value="no"]').textContent = t.attendingNo;
+            document.querySelectorAll('.form-label')[3].textContent = t.messageLabel;
+            document.getElementById('message').placeholder = t.messagePlaceholder;
+            document.querySelector('.rsvp-button').textContent = t.submitButton;
+            document.querySelector('.success-text').textContent = t.successTitle;
+            document.querySelector('.success-subtext').textContent = t.successSubtitle;
+            document.querySelector('.rsvp-deadline').textContent = t.deadlineText;
+            
+            // Update footer
+            document.querySelector('.footer-text').innerHTML = t.footerText;
+            document.querySelector('.hashtag').textContent = t.hashtag;
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Language switcher event listeners
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Update current language
+                currentLang = this.getAttribute('data-lang');
+                
+                // Update content
+                updateContent(currentLang);
+            });
+        });
+
         // RSVP Form Handler
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
